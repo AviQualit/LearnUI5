@@ -1,0 +1,30 @@
+ID: LearnUI5
+_schema-version: '2.0'
+version: 0.0.1
+modules:
+  - name: myFirstUi5
+    type: html5
+    path: myFirstUi5
+    requires:
+      - name: xsaJobsJSuaa
+
+  - name: db
+    type: hdb
+    path: db
+    requires:
+     - name: hdi_db
+
+resources:
+  - name: xsaJobsJSuaa
+    type: com.sap.xs.uaa-space
+    parameters:
+      config-path: ./xs-security.json
+
+  - name: hdi_db
+    parameters:
+       config:
+          schema: DB
+    properties:
+       hdi-container-name: ${service-name}
+    type: com.sap.xs.hdi-container
+
