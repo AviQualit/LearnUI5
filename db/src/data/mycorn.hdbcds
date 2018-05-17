@@ -1,0 +1,19 @@
+
+namespace LearnUI5.db.data;
+@OData.publish : true
+context tables {
+entity mycorn{
+	key _DATE: LocalDate not null;
+	_PRODUCT: String(10);
+	_OPEN: Double ;
+	_HIGH: Double ;
+	"_LOW": Double ;
+	"_LAST": Double ;
+	"_CHANGE": Double ;
+	"_SETTLE": Double ;
+	"_VOLUME": Double ;
+	"_PREVIOS": Double ;
+
+};
+
+};

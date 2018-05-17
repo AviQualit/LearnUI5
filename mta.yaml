@@ -7,24 +7,36 @@ modules:
     path: myFirstUi5
     requires:
       - name: xsaJobsJSuaa
-
+      - name: core_xsjs_api
+        group: destinations
+        properties:
+          name: core-xsjs-backend
+          url: '~{url}'
+          forwardAuthToken: true
   - name: db
     type: hdb
     path: db
     requires:
-     - name: hdi_db
-
+      - name: hdi_db
+  - name: core_xsjs
+    type: nodejs
+    path: core_xsjs
+    provides:
+      - name: core_xsjs_api
+        properties:
+          url: '${default-url}'
+    requires:
+      - name: xsaJobsJSuaa
+      - name: hdi_db
 resources:
   - name: xsaJobsJSuaa
     type: com.sap.xs.uaa-space
     parameters:
       config-path: ./xs-security.json
-
   - name: hdi_db
     parameters:
-       config:
-          schema: DB
+      config:
+        schema: DB
     properties:
-       hdi-container-name: ${service-name}
+      hdi-container-name: '${service-name}'
     type: com.sap.xs.hdi-container
-

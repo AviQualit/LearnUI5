@@ -1,0 +1,6 @@
+service namespace "LearnUI5.db.data" {
+    "LearnUI5.db.data::tables.mycorn" as "corn"
+        create forbidden 
+        update forbidden 
+        delete forbidden;
+}
