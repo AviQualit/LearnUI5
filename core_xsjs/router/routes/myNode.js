@@ -14,7 +14,7 @@ module.exports = function() {
 		console.log("select corn start");
 var client = req.db;
 client.prepare(
-	"SELECT * FROM \"LearnUI5.db.data::tables.mycorn\" ORDER BY \"_DATE\" ASC;" ,
+	"SELECT * FROM \"LearnUI5.db.data::tables.mycorn\" ORDER BY \"_DATE\" DESC;" ,
 	function(err, statement) {
 		if (err) {			
 			res.type("text/plain").status(500).send("ERROR: " + err.toString());	return;	}

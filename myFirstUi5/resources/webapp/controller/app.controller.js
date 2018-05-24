@@ -64,7 +64,7 @@ oTable.addColumn(new sap.ui.table.Column({
 					break;
 				case "old":
 					var oldest = view.byId("productTable").getModel().oData[view.byId("productTable").getModel().oData.length-1]._SETTLE.toString().slice(0);
-					view.byId("dynamicText").setText("Oldest settle value is:" +oldest);
+					view.byId("dynamicText").setText("Oldest settle value is: " +oldest);
 					break;
 				default:
 					
