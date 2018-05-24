@@ -1,32 +1,37 @@
 <mvc:View controllerName="myFirstUi5.controller.app" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
-	displayBlock="true" xmlns="sap.m" xmlns:table="sap.ui.table" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core">
+	displayBlock="true" xmlns="sap.m" xmlns:table="sap.ui.table" xmlns:l="sap.ui.layout"
+	xmlns:smartTable="sap.ui.comp.smarttable" xmlns:core="sap.ui.core">
 	<App class="myFirstUI5Style">
 		<pages>
 			<Page title="{i18n>title}" class="pageStyle">
 				<content>
 					<VBox class="headerBox" width="100%">
-						<Label  class="radioButtonGropupLabel sapUiSmallMarginBeginEnd sapUiSmallMarginTop" text="Choose oldest or newest settle"></Label>
+						<Label class="radioButtonGropupLabel sapUiSmallMarginBeginEnd sapUiSmallMarginTop" text="Choose oldest or newest settle"></Label>
 						<RadioButtonGroup id='datasetRadioGroup' class="radioButtonGroup sapUiSmallMarginBeginEnd sapUiSmallMarginBottom">
-											<buttons>
-												<RadioButton id="newest" text="newest" select="onDatasetSelected">
-													<customData>
-														<core:CustomData key="key" value="new"/>
-													</customData>
-												</RadioButton>
-												<RadioButton id="oldest" text="oldest" select="onDatasetSelected">
-													<customData>
-														<core:CustomData key="key" value="old"/>
-													</customData>
-												</RadioButton>
-											</buttons>
-										</RadioButtonGroup>
-					
+							<buttons>
+								<RadioButton id="newest" text="newest" select="onDatasetSelected">
+									<customData>
+										<core:CustomData key="key" value="new"/>
+									</customData>
+								</RadioButton>
+								<RadioButton id="oldest" text="oldest" select="onDatasetSelected">
+									<customData>
+										<core:CustomData key="key" value="old"/>
+									</customData>
+								</RadioButton>
+							</buttons>
+						</RadioButtonGroup>
 						<Label id="dynamicText" class="lables sapUiResponsiveMargin" text="dynamic text"></Label>
 					</VBox>
 					<VBox class="sapUiContentPadding sapUiResponsiveMargin headerBox" width="100%">
-						<table:Table class="sapUiSmallMarginBeginEnd" id="productTable" visibleRowCount="7" minAutoRowCount="5" visibleRowCountMode="Auto" selectionMode="None"></table:Table>
-						
-					
+						<table:Table class="sapUiSmallMarginBeginEnd" id="productTable" visibleRowCount="7" minAutoRowCount="5" visibleRowCountMode="Auto"
+							selectionMode="None"></table:Table>
+						<smartTable:SmartTable id="bpTable" header="Business Partners List" editable="false" showRowCount="true" enableAutoBinding="true"
+							showFullScreenButton="true" tableType="Table">
+							<smartTable:layoutData>
+								<FlexItemData growFactor="1" baseSize="0%"/>
+							</smartTable:layoutData>
+						</smartTable:SmartTable>
 					</VBox>
 				</content>
 			</Page>

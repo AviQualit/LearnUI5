@@ -1,8 +1,9 @@
 sap.ui.define([
 	"sap/ui/core/UIComponent",
 	"sap/ui/Device",
-	"myFirstUi5/model/models"
-], function(UIComponent, Device, models) {
+	"myFirstUi5/model/models",
+	"sap/ui/model/json/JSONModel"
+], function(UIComponent, Device, models,JSONModel) {
 	"use strict";
 
 	return UIComponent.extend("myFirstUi5.Component", {
@@ -18,10 +19,17 @@ sap.ui.define([
 		 */
 		init: function() {
 			// call the base component's init function
-			UIComponent.prototype.init.apply(this, arguments);
+			jQuery.sap.require("sap.m.MessageBox");
+			jQuery.sap.require("sap.m.MessageToast");
 
-			// set the device model
-			this.setModel(models.createDeviceModel(), "device");
+			var oModel = new JSONModel(Device);
+			oModel.setDefaultBindingMode("OneWay");
+
+			this.setModel(oModel, "device");
+
+			sap.ui.core.UIComponent.prototype.init.apply(
+				this, arguments);
+		
 		}
 	});
 });

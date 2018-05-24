@@ -14,7 +14,16 @@
 		"sourceTemplate": {
 			"id": "hanatemplates.basicSAPUI5ApplicationProject",
 			"version": "0.0.0"
-		}
+		},
+		"dataSources": {
+      "bpService": {
+        "uri": "/xsodata/corn.xsodata/",
+        "type": "OData",
+        "settings": {
+          "odataVersion": "2.0"
+        }
+      }
+    }
 	},
 
 	"sap.ui": {
@@ -65,7 +74,17 @@
 				"settings": {
 					"bundleName": "myFirstUi5.i18n.i18n"
 				}
-			}
+			},"bpModel": {
+        	"dataSource": "bpService",
+        	"type": "sap.ui.model.odata.v2.ODataModel",
+        	"preload": true,
+        	"settings": {
+        		"useBatch": false,
+        		"json": true,
+				"defaultBindingMode": "TwoWay",
+				"defaultUpdateMethod": "PUT"
+        	}
+    	}
 		},
 		"resources": {
 			"css": [{
