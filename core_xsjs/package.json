@@ -1,24 +1,24 @@
 {
   "dependencies": {
-    "@sap/xsjs": "2.1.1",
-    "@sap/xsenv": "1.2.8",
+    "@sap/xsenv": "1.2.9",
     "express": "~4.15",
     "passport":"~0.3.2",
-    "@sap/logging": "latest",
-    "@sap/xssec": "latest",
-	"@sap/hdbext": "latest",
-    "@sap/jobs-client": "latest",
+    "@sap/hdbext":"4.7.2",
+"@sap/xssec":"~2.0.0",
+     "@sap/jobs-client": "~1.2.0",
+     "@sap/logging": "latest",
+   
     "async": "latest"
   },
   "devDependencies": {
-    "@sap/xsjs-test": "2.0.9"
+  
   },
   "files": [],
   "main": "server.js",
   "name": "core_xsjs",
   "scripts": {
-    "start": "node server.js",
-    "test": "node testrun.js"
+    "start": "node server.js"
+
   },
   "engines": {
     "node": "6.x"

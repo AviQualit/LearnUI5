@@ -1,0 +1,35 @@
+PROCEDURE "LearnUI5.db.procedures::INSERT_MYCORN_DATA" ( IN rowsNum INT )
+   LANGUAGE SQLSCRIPT
+   SQL SECURITY INVOKER
+   --DEFAULT SCHEMA <default_schema_name>
+AS
+BEGIN
+
+   /*************************************
+       Write your procedure logic 
+   *************************************/
+    DECLARE v_index INT;
+   FOR v_index IN 1 .. rowsNum DO
+   declare myDate DATE;
+   declare dateExists INTEGER = 1; 
+   /* check if date already exists*/
+   while dateExists != 0 do
+     myDate  =  ADD_DAYS (TO_DATE ('2014-01-01', 'YYYY-MM-DD'), RAND() * 730);
+   select count(*) into dateExists  from "LearnUI5.db.data::tables.mycorn" where "_DATE"=myDate;
+   end while;
+   INSERT INTO "LearnUI5.db.data::tables.mycorn" VALUES(
+	:myDate/*_DATE <DATE>*/,
+	'corn'/*_PRODUCT <NVARCHAR(10)>*/,
+	ROUND(RAND() * 100)/*_OPEN <DOUBLE>*/,
+	ROUND(RAND() * 100)/*_HIGH <DOUBLE>*/,
+	ROUND(RAND() * 100)/*_LOW <DOUBLE>*/,
+	ROUND(RAND() * 100)/*_LAST <DOUBLE>*/,
+	ROUND(RAND() * 100)/*_CHANGE <DOUBLE>*/,
+	ROUND(RAND() * 100)/*_SETTLE <DOUBLE>*/,
+	ROUND(RAND() * 100)/*_VOLUME <DOUBLE>*/,
+	ROUND(RAND() * 100)/*_PREVIOS <DOUBLE>*/
+);
+  
+
+   END FOR;
+END

@@ -25,7 +25,7 @@ var router = require("./router")(app, server);
 
 //Initialize the XSJS Compatibility Layer
 
-init.initXSJS(app);
+//init.initXSJS(app);
 
 
 //Start the Server

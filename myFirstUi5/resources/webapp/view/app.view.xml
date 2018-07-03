@@ -26,7 +26,7 @@
 					<VBox class="sapUiContentPadding sapUiResponsiveMargin headerBox" width="100%">
 						<table:Table class="sapUiSmallMarginBeginEnd" id="productTable" visibleRowCount="7" minAutoRowCount="5" visibleRowCountMode="Auto"
 							selectionMode="None"></table:Table>
-						<smartTable:SmartTable id="bpTable" header="Business Partners List" editable="false" showRowCount="true" enableAutoBinding="true"
+						<smartTable:SmartTable visible="false" id="bpTable" header="Business Partners List" editable="false" showRowCount="true" enableAutoBinding="true"
 							showFullScreenButton="true" tableType="Table">
 							<smartTable:layoutData>
 								<FlexItemData growFactor="1" baseSize="0%"/>

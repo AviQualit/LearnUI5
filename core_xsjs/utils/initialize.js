@@ -33,9 +33,11 @@ initExpress: function() {
 			xsHDBConn.middleware(hanaOptions.hana)
 		);
 		return app;
-	},initXSJS: function(app) {
+	}
+	
+	/*,initXSJS: function(app) {
 //	process.env.XS_APP_LOG_LEVEL='debug';
-var xsjs = require("@sap/xsjs");
+//var xsjs = require("@sap/xsjs");
 var xsenv = require("@sap/xsenv");
 var options = {
 	//	anonymous : true, // remove to authenticate calls
@@ -87,6 +89,6 @@ try {
 var xsjsApp = xsjs(options);
 app.use(xsjsApp);
 }
-
+*/
 };
 
